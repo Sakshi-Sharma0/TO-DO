@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO</title>
+</head>
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: rgba(0, 230, 200, 0.2);
+}
+
+div.container h1 {
+    color: blue;
+    font-size: 2.5rem;
+}
+
+div.container {
+    width: 92%;
+    max-width: 450px;
+    height: auto;
+    background-color: rgba(6, 20, 18, 0.2);
+    text-align: center;
+    border-radius: 7px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+div.container p {
+    font-size: 1.5rem;
+}
+
+input#task {
+    width: 100%;
+    height: 35px;
+    padding: 2px;
+    margin: 8px 0;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    border: none;
+}
+
+button#add {
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    background-color: red;
+    color: white;
+    border-radius: 7px;
+    font-size: 1rem;
+    border: 2px solid red;
+    cursor: pointer;
+}
+
+button#add:hover {
+    background-color: rgb(12, 184, 12);
+    border-color: rgb(12, 184, 12);
+}
+
+ol#ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+ol#ul li {
+    background-color: #f2f2f2;
+    margin: 8px 0;
+    padding: 8px;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+ol#ul li:hover {
+    background-color: #d1e7dd;
+}
+
+ol#ul li button {
+    background-color: transparent;
+    color: red;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: 7px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+ol#ul li button:hover {
+    background-color: #ffdddd;
+    color: #ff0000;
+}
+
+ol#ul li button:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    div.container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    div.container h1 {
+        font-size: 2.2rem;
+    }
+
+    div.container p {
+        font-size: 1.4rem;
+    }
+
+    input#task {
+        font-size: 1.1rem;
+    }
+
+    button#add {
+        font-size: 0.9rem;
+    }
+
+    ol#ul li {
+        font-size: 1.1rem;
+        padding: 6px;
+    }
+
+    ol#ul li button {
+        font-size: 0.8rem;
+        padding: 3px 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    div.container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    div.container h1 {
+        font-size: 1.8rem;
+    }
+
+    div.container p {
+        font-size: 1.2rem;
+    }
+
+    input#task {
+        font-size: 1rem;
+        padding: 6px;
+    }
+
+    button#add {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    ol#ul li {
+        font-size: 1rem;
+        padding: 6px;
+    }
+
+    ol#ul li button {
+        font-size: 0.8rem;
+        padding: 3px 6px;
+    }
+}
+
+</style>
+<body>
+    <div class="container">
+ 
+        <h1>To Do List</h1>
+        <p>Add Your Task</p>
+        <input type="text" id="task">
+        <button id="add" onclick="addtask()">add</button>
+        <ol id="ul">
+        </ol>
+        <p>Made by Sakshu with ❤️</p>
+    </div>
+  
+    <script>
+      function addtask(){
+        let Message=document.querySelector('#task').value;
+        if(Message===""){
+            alert('enter an item');
+        }
+        else{
+        let newELement = document.createElement('li');
+
+        newELement.textContent= Message;   
+        let ul=document.getElementById('ul');
+        let EL=document.createElement('button');
+        EL.textContent="remove";
+        newELement.appendChild(EL);
+        ul.appendChild(newELement);
+        EL.addEventListener('click',function (){
+            newELement.remove();
+        });
+        document.getElementById('task').value="";
+      }
+    }
+    </script>
+    
+</body>
+</html>
